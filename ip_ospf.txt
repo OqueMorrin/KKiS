@@ -1,0 +1,96 @@
+Протокол маршрутизации ospf (с учетом состояния линии)
+router ospf 1
+network 192.168.1.0 0.0.0.255 area 0
+
+Таблицы маршрутизации:
+Router0:
+Gateway of last resort is not set
+
+     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.1.0/24 is directly connected, GigabitEthernet0/0
+L       192.168.1.1/32 is directly connected, GigabitEthernet0/0
+O    192.168.2.0/24 [110/2] via 192.168.1.2, 00:15:40, GigabitEthernet0/0
+     192.168.4.0/24 is variably subnetted, 3 subnets, 3 masks
+C       192.168.4.0/25 is directly connected, GigabitEthernet0/2
+L       192.168.4.126/32 is directly connected, GigabitEthernet0/2
+O       192.168.4.128/27 [110/2] via 192.168.9.2, 00:03:40, GigabitEthernet0/0/0
+O    192.168.5.0/24 [110/2] via 192.168.1.2, 00:15:40, GigabitEthernet0/0
+O    192.168.6.0/24 [110/3] via 192.168.9.2, 00:03:40, GigabitEthernet0/0/0
+O    192.168.7.0/24 [110/2] via 192.168.9.2, 00:03:40, GigabitEthernet0/0/0
+O    192.168.8.0/24 [110/2] via 192.168.9.2, 00:03:40, GigabitEthernet0/0/0
+     192.168.9.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.9.0/24 is directly connected, GigabitEthernet0/0/0
+L       192.168.9.1/32 is directly connected, GigabitEthernet0/0/0
+     192.168.100.0/32 is subnetted, 1 subnets
+C       192.168.100.1/32 is directly connected, Loopback1
+
+Router1:
+Gateway of last resort is not set
+
+     192.168.1.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.1.0/24 is directly connected, GigabitEthernet0/0
+L       192.168.1.2/32 is directly connected, GigabitEthernet0/0
+     192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.2.0/24 is directly connected, GigabitEthernet0/2
+L       192.168.2.1/32 is directly connected, GigabitEthernet0/2
+     192.168.4.0/24 is variably subnetted, 2 subnets, 2 masks
+O       192.168.4.0/25 [110/2] via 192.168.1.1, 00:16:42, GigabitEthernet0/0
+O       192.168.4.128/27 [110/3] via 192.168.2.2, 00:04:41, GigabitEthernet0/2
+                         [110/3] via 192.168.1.1, 00:04:41, GigabitEthernet0/0
+     192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.5.0/24 is directly connected, GigabitEthernet0/1
+L       192.168.5.254/32 is directly connected, GigabitEthernet0/1
+O    192.168.6.0/24 [110/4] via 192.168.2.2, 00:04:41, GigabitEthernet0/2
+                    [110/4] via 192.168.1.1, 00:04:41, GigabitEthernet0/0
+O    192.168.7.0/24 [110/3] via 192.168.2.2, 00:04:41, GigabitEthernet0/2
+                    [110/3] via 192.168.1.1, 00:04:41, GigabitEthernet0/0
+O    192.168.8.0/24 [110/2] via 192.168.2.2, 00:16:28, GigabitEthernet0/2
+O    192.168.9.0/24 [110/2] via 192.168.1.1, 00:04:41, GigabitEthernet0/0
+     192.168.100.0/32 is subnetted, 2 subnets
+O       192.168.100.1/32 [110/2] via 192.168.1.1, 00:04:41, GigabitEthernet0/0
+C       192.168.100.2/32 is directly connected, Loopback1
+
+Router2:
+Gateway of last resort is not set
+
+O    192.168.1.0/24 [110/3] via 192.168.7.1, 00:05:06, GigabitEthernet0/2
+O    192.168.2.0/24 [110/3] via 192.168.7.1, 00:16:48, GigabitEthernet0/2
+     192.168.4.0/24 is variably subnetted, 2 subnets, 2 masks
+O       192.168.4.0/25 [110/3] via 192.168.7.1, 00:05:06, GigabitEthernet0/2
+O       192.168.4.128/27 [110/2] via 192.168.7.1, 00:16:48, GigabitEthernet0/2
+O    192.168.5.0/24 [110/4] via 192.168.7.1, 00:16:48, GigabitEthernet0/2
+     192.168.6.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.6.0/24 is directly connected, GigabitEthernet0/0
+L       192.168.6.254/32 is directly connected, GigabitEthernet0/0
+     192.168.7.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.7.0/24 is directly connected, GigabitEthernet0/2
+L       192.168.7.2/32 is directly connected, GigabitEthernet0/2
+O    192.168.8.0/24 [110/2] via 192.168.7.1, 00:16:48, GigabitEthernet0/2
+O    192.168.9.0/24 [110/2] via 192.168.7.1, 00:08:07, GigabitEthernet0/2
+     192.168.100.0/32 is subnetted, 2 subnets
+O       192.168.100.1/32 [110/3] via 192.168.7.1, 00:05:06, GigabitEthernet0/2
+C       192.168.100.3/32 is directly connected, Loopback1
+
+Router3:
+Gateway of last resort is not set
+
+O    192.168.1.0/24 [110/2] via 192.168.9.1, 00:05:35, GigabitEthernet0/0/0
+O    192.168.2.0/24 [110/2] via 192.168.8.1, 00:17:16, GigabitEthernet0/0
+     192.168.4.0/24 is variably subnetted, 3 subnets, 3 masks
+O       192.168.4.0/25 [110/2] via 192.168.9.1, 00:05:35, GigabitEthernet0/0/0
+C       192.168.4.128/27 is directly connected, GigabitEthernet0/1
+L       192.168.4.158/32 is directly connected, GigabitEthernet0/1
+O    192.168.5.0/24 [110/3] via 192.168.8.1, 00:17:16, GigabitEthernet0/0
+O    192.168.6.0/24 [110/2] via 192.168.7.2, 00:17:16, GigabitEthernet0/2
+     192.168.7.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.7.0/24 is directly connected, GigabitEthernet0/2
+L       192.168.7.1/32 is directly connected, GigabitEthernet0/2
+     192.168.8.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.8.0/24 is directly connected, GigabitEthernet0/0
+L       192.168.8.2/32 is directly connected, GigabitEthernet0/0
+     192.168.9.0/24 is variably subnetted, 2 subnets, 2 masks
+C       192.168.9.0/24 is directly connected, GigabitEthernet0/0/0
+L       192.168.9.2/32 is directly connected, GigabitEthernet0/0/0
+     192.168.100.0/32 is subnetted, 2 subnets
+O       192.168.100.1/32 [110/2] via 192.168.9.1, 00:05:35, GigabitEthernet0/0/0
+C       192.168.100.4/32 is directly connected, Loopback1
